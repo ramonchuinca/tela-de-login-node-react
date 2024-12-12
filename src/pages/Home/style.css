@@ -9,6 +9,8 @@
   font-size: 2.5em;
   font-weight: bolder;
 }
+
+
 form{
   display: flex;
   flex-direction: column;
@@ -65,4 +67,11 @@ form{
 }
 & button:hover{
   opacity:0.5;
+}
+
+
+@media (max-width: 430px) {
+  .texto-h1 {
+    font-size: 1em;
+  }
 }

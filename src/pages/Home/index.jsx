@@ -1,29 +1,24 @@
+import { useEffect, useState , useRef} from "react";
+
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Trash from "../../assets/trash.svg";
+import api from '../../services/api'
 
 function Home() {
-  const users = [
-    {
-      id: "6548925trh245654789hd",
-      name: "sheik-2",
-      age: 45,
-      email: "sheyno@hotmail.com",
-    },
-    {
-      id: "6548925trh245698",
-      name: "sheik",
-      age: 40,
-      email: "shey@hotmail.com",
-    },
-    {
-      id: "6548925trh245654789hd",
-      name: "sheik-2",
-      age: 45,
-      email: "sheyno@hotmail.com",
-    },
-  ];
+ const [users, setUsers] = useState([])
 
+  async function getUsers(){
+   const usersFromApi = await api.get('/usuarios')
+   users = usersFromApi.data
+ 
+
+   useEffect(()=>{
+    getUsers()
+
+   },[])
+  }
+   
   return (
     <div className="container">
       <form>
